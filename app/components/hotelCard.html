@@ -1,0 +1,19 @@
+<img class="hotel-left" data-bind="attr: { src: getThumb() }">
+<div class="hotel-center">
+    <div class="hotel-name" data-bind="text: hotel"></div>
+    <div class="hotel-description"
+         data-bind="html: description"></div>
+</div>
+<div class="hotel-right">
+    <div class="hotel-star">
+        <!-- ko foreach: starRange -->
+    <span class="stars"
+          data-bind="css: $parent.starType"></span>
+        <!-- /ko -->
+    </div>
+    <div class="hotel-price" data-bind="text: price"></div>
+    <div class="hotel-book">
+        <input type="button" value="Book"
+               data-bind="button: true, click: book"/>
+    </div>
+</div>

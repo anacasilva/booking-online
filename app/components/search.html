@@ -1,0 +1,48 @@
+<form data-bind="submit: execute">
+  <div>
+    <input type="text" placeholder="Enter a destination"
+           data-bind="autoComplete: destination,
+                      autoCompleteEvents: destination.events,
+                      autoCompleteOptions: destination.options,
+                      clearable: destination" />
+    <label> Check In: <input type="text" readonly data-bind="datepicker: checkIn, clearable: checkIn" /> </label>
+    <label> Check Out: <input type="text" readonly data-bind="datepicker: checkOut, clearable: checkOut" /> </label>
+    <input type="submit" data-bind="button: true, enable: isValid" />
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>Rooms</legend>
+      <label>
+        Number of Room
+        <select data-bind="options: rangeOfRooms,
+                           value: numberOfRooms">
+        </select>
+      </label>
+      <!-- ko foreach: rooms -->
+      <fieldset>
+        <legend>
+          Room <span data-bind="text: roomNumber"></span>
+        </legend>
+        <label> Number of adults
+          <select data-bind="options: rangeOfAdults,
+                             value: numberOfAdults"></select>
+        </label>
+        <label> Number of children
+          <select data-bind="options: rangeOfChildren,
+                             value: numberOfChildren"></select>
+        </label>
+        <fieldset class="inline" data-bind="visible: hasChildren">
+          <legend>Age of children</legend>
+          <!-- ko foreach: ageOfChildren -->
+          <select data-bind="options: $parent.rangeOfAge,
+                               value: $rawData"></select>
+          <!-- /ko -->
+        </fieldset>
+      </fieldset>
+      <!-- /ko -->
+    </fieldset>
+  </div>
+
+</form>
+<pre data-bind="text: ko.toJSON($data, null, 2)"></pre>

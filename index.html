@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking Online - smaller and cheaper</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<h1>Why should you choose us?</h1>
+<h2>Just because we are a really small startup, so we can do really competitive prices!!!</h2>
+
+<div data-bind="component: 'search'"></div>
+<div class="hotels">
+  <!-- ko foreach: hotels -->
+  <div class="hotel-card"
+       data-bind="component: { name: 'hotel-card',
+                               params: $data }"></div>
+  <!-- /ko -->
+</div>
+
+<script src="app/require.js" data-main="app/index.js"></script>
+</body>
+</html>
