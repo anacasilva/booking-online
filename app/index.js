@@ -5,14 +5,14 @@ define(function(require) {
         viewModel = {
 			  hotels: ko.observableArray([])
 		};
-		
+
 	eventManager.on("search:result", function(data) {
 		viewModel.hotels(data);
 	});
 
+//Registering Components
 ko.components.register("search", {require: "components/search"});
-ko.components.register("hotel-card", 
-                       {require: "components/hotelCard"});
+ko.components.register("hotel-card", {require: "components/hotelCard"});
 
     $(function() {
         ko.applyBindings(viewModel);

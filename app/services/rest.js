@@ -5,7 +5,7 @@ define(function(require) {
 
     function Rest() {
         $.ajax({
-            url: "/server/hotels.json",
+            url: "app/server/hotels.json",
             success: function(data) {
                 this.hotels = [];
 
